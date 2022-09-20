@@ -4,7 +4,7 @@ const bodyParser = require('body-parser')
 require('dotenv').config()
 let cors = require('cors')
 
-const stripe = require('stripe')(sk_test_51LjPI2LQopOFCRZk9ING2Mt8vxqxkU6KIIfOOEMmkZH29TmnueKyOyWScKnBmZa3DqiIM6DIFro2s3zHfxghK6pT00kOMM5Dvu)
+const stripe = require('stripe')("sk_test_51LjPI2LQopOFCRZk9ING2Mt8vxqxkU6KIIfOOEMmkZH29TmnueKyOyWScKnBmZa3DqiIM6DIFro2s3zHfxghK6pT00kOMM5Dvu")
 
 const app = express()
 app.use(bodyParser.json())
