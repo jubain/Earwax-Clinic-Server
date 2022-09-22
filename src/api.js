@@ -14,11 +14,10 @@ const router = express.Router()
 
 router.get('/', async function (req, res) {
     const paymentIntent = await stripe.paymentIntents.create({
-        amount: 1,
+        amount: 3000,
         currency: 'gbp',
         automatic_payment_methods: { enabled: true },
         receipt_email: 'jubeennp@gmail.com',
-        payment_method: "card",
     });
     res.json({ client_secret: paymentIntent.client_secret })
 })
