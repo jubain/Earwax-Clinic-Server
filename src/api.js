@@ -18,6 +18,7 @@ router.get('/', async function (req, res) {
         currency: 'gbp',
         automatic_payment_methods: { enabled: true },
         receipt_email: 'jubeennp@gmail.com',
+        payment_method: "card",
     });
     res.json({ client_secret: paymentIntent.client_secret })
 })
