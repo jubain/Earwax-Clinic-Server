@@ -11,9 +11,9 @@ app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }))
 
 const router = express.Router()
-// let corsOptions = {
-//     origin : ['http://localhost:3000'],
-//  }
+let corsOptions = {
+    origin : ['https://localhost:3000'],
+ }
 app.use(cors())
 router.get('/', async function (req, res) {
     const paymentIntent = await stripe.paymentIntents.create({
