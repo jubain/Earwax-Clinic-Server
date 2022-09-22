@@ -17,7 +17,7 @@ const router = express.Router()
 app.use(cors())
 router.get('/', async function (req, res) {
     const paymentIntent = await stripe.paymentIntents.create({
-        amount: 3000,
+        amount: 50,
         currency: 'gbp',
         automatic_payment_methods: { enabled: true },
         receipt_email: 'jubeennp@gmail.com',
