@@ -16,12 +16,18 @@ let corsOptions = {
 }
 app.use(cors())
 router.post('/', async function (req, res) {
-    var userEmail = JSON.parse(req.body.toString());
+    var userDetails = JSON.parse(req.body.toString());
+
+    const customer = await stripe.customers.create({
+        email: userDetails.email,
+        name: userDetails.fullName,
+    });
+   
     const paymentIntent = await stripe.paymentIntents.create({
         amount: 50,
         currency: 'gbp',
         automatic_payment_methods: { enabled: true },
-        receipt_email: userEmail,
+        receipt_email: customer.email,
     });
     res.json({ client_secret: paymentIntent.client_secret })
 })
