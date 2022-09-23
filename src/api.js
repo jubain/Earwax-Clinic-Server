@@ -40,6 +40,7 @@ router.post('/', async function (req, res) {
         currency: 'gbp',
         automatic_payment_methods: { enabled: true },
         receipt_email: customer.email,
+        customer : customer.id
     });
     res.json({ client_secret: paymentIntent.client_secret })
 })
