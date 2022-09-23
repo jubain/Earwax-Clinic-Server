@@ -17,7 +17,6 @@ let corsOptions = {
 app.use(cors())
 router.post('/', async function (req, res) {
     var userEmail = JSON.parse(req.body.toString());
-    console.log(temp)
     const paymentIntent = await stripe.paymentIntents.create({
         amount: 50,
         currency: 'gbp',
