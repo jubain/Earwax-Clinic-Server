@@ -12,15 +12,17 @@ app.use(bodyParser.urlencoded({ extended: true }))
 
 const router = express.Router()
 let corsOptions = {
-    origin : ['https://localhost:3000'],
- }
+    origin: ['https://localhost:3000'],
+}
 app.use(cors())
-router.get('/', async function (req, res) {
+router.post('/', async function (req, res) {
+    var userEmail = JSON.parse(req.body.toString());
+    console.log(temp)
     const paymentIntent = await stripe.paymentIntents.create({
         amount: 50,
         currency: 'gbp',
         automatic_payment_methods: { enabled: true },
-        receipt_email: 'jubeennp@gmail.com',
+        receipt_email: userEmail,
     });
     res.json({ client_secret: paymentIntent.client_secret })
 })
