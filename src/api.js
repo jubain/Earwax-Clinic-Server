@@ -36,7 +36,7 @@ router.post('/', async function (req, res) {
     }
 
     const paymentIntent = await stripe.paymentIntents.create({
-        amount: 50,
+        amount: 3000,
         currency: 'gbp',
         automatic_payment_methods: { enabled: true },
         receipt_email: customer.email,
